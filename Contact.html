@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - PreceDentify</title>
+    <link rel="icon" href="/LOGO.jpeg">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url("image.avif")no-repeat center center/cover;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+
+        /* Left Section - Contact Info */
+        .contact-info {
+            width: 40%;
+            padding: 20px;
+        }
+
+        .contact-info h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .info-box i {
+            font-size: 24px;
+            color: #ffb400;
+            margin-right: 15px;
+        }
+
+        .info-box p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        /* Right Section - Contact Form */
+        .contact-form {
+            width: 55%;
+            padding: 20px;
+        }
+
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form input::placeholder, 
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 12px;
+            background: #ffb400;
+            border: none;
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: white;
+            color: #ffb400;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-info, .contact-form {
+                width: 100%;
+            }
+
+            .info-box {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Contact Info Section -->
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+
+            <div class="info-box">
+                <i class="fas fa-phone-alt"></i>
+                <p>+91 98765 43210</p>
+            </div>
+
+            <div class="info-box">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>123 Rock Street, Avenue, India</p>
+            </div>
+
+            <div class="info-box">
+                <i class="fas fa-clock"></i>
+                <p>Mon - Fri: 10 AM - 6 PM</p>
+            </div>
+        </div>
+
+        <!-- Contact Form Section -->
+        <div class="contact-form">
+            <h2>Send a Message</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Address" required>
+                <textarea placeholder="Your Message" rows="4" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

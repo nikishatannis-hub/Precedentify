@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Submission</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            background: url("justice.jpg") no-repeat center center/cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            color: #ff7200;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            font-weight: bold;
+            margin: 10px 0 5px;
+        }
+
+        select, input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #ff7200;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff9100;
+            transform: scale(1.05);
+        }
+
+        .complaint-id {
+            font-size: 14px;
+            margin-top: 10px;
+            color: lightgray;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Submit a Complaint</h2>
+        <form id="complaintForm">
+            <label for="complaintType">Complaint Type</label>
+            <select id="complaintType" required>
+                <option value="">Select an issue</option>
+                <option value="infrastructure">Infrastructure Issues</option>
+                <option value="transport">Transport & Traffic</option>
+                <option value="healthcare">Healthcare Problems</option>
+                <option value="law">Law & Order</option>
+                <option value="education">Education</option>
+                <option value="environment">Environmental Issues</option>
+            </select>
+
+            <label for="submissionType">Submission Type</label>
+            <select id="submissionType" required onchange="toggleIdentityFields()">
+                <option value="normal">Normal</option>
+                <option value="anonymous">Anonymous</option>
+            </select>
+
+            <div id="identityFields">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <label for="description">Complaint Description</label>
+            <textarea id="description" placeholder="Describe the issue..." required></textarea>
+
+            <button type="submit">Submit Complaint</button>
+            <p class="complaint-id" id="complaintID"></p>
+        </form>
+        <a href="About.html" class="btn">About Us</a>
+    </div>
+    </div>
+
+    <script>
+        function toggleIdentityFields() {
+            const submissionType = document.getElementById("submissionType").value;
+            const identityFields = document.getElementById("identityFields");
+
+            if (submissionType === "anonymous") {
+                identityFields.classList.add("hidden");
+                document.getElementById("name").removeAttribute("required");
+                document.getElementBy
+            } else {
+                identityFields.classList.remove("hidden");
+                document.getElementById("name").setAttribute("required", "true");
+                document.getElementById("email").setAttribute("required", "true");
+            }
+        }
+
+        document.getElementById("complaintForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const submissionType = document.getElementById("submissionType").value;
+            let complaintID = "";
+
+            if (submissionType === "anonymous") {
+                complaintID = "C-" + Math.floor(Math.random() * 1000000);
+                document.getElementById("complaintID").innerText = 
+                    "Your anonymous complaint ID: " + complaintID + " (Save for reference)";
+            } else {
+                alert("Complaint submitted successfully! ✅");
+            }
+
+            this.reset();
+            toggleIdentityFields();
+        });
+
+        // Ensure fields are properly hidden on page load
+        window.onload = function() {
+            toggleIdentityFields();
+        };
+    </script>
+</body>
+</html>
